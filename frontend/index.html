@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate DB Dashboard</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet Draw CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="map"></div>
+    <div id="sidebar">
+        <h2>Climate Analysis</h2>
+        <div class="control-group">
+            <label for="unit-selector">Územní jednotka:</label>
+            <select id="unit-selector">
+                <option value="">Vyberte jednotku</option>
+                <option value="obce">Obce</option>
+                <option value="okresy">Okresy</option>
+                <option value="orp">ORP</option>
+                <option value="kraje">Kraje</option>
+                <option value="chko">CHKO</option>
+                <option value="polygon">Vlastní polygon</option>
+            </select>
+        </div>
+        <div id="analysis-results">
+            <h3>Výsledky analýzy:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Oblast</th>
+                        <th>De Martonne</th>
+                        <th>PET (mm)</th>
+                        <th>Srážky (mm)</th>
+                        <th>Teplota (°C)</th>
+                    </tr>
+                </thead>
+                <tbody id="results-table-body">
+                    <!-- Results will be inserted here -->
+                </tbody>
+            </table>
+            <button id="export-csv">Export do CSV</button>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet Draw JS -->
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <!-- Turf.js for spatial analysis on frontend (e.g., polygon intersection if needed, CSV export) -->
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
